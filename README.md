@@ -21,7 +21,7 @@
 10. Peminjaman maksimal 3 hari
 11. Admin bisa melihat list buku yang sedang dipinjam 
 12. Admin bisa melihat penyewa yang terkena denda (3 hari belum kembalikan buku) lalu melihat detail peminjamannya
-13. Admin bisa melihat log peminjaman buku
+13. Admin bisa melihat log peminjaman buku (kasih tanggal wajib pengembalian buku & tanggal aktual buku dikembalikan)
 
 
 ## About Laravel
