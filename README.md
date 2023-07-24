@@ -7,6 +7,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Requirement SI-RENTAL-BUKU
+
+1. Ada 2 Jenis user : Admin, Penyewa
+2. Buku bisa memiliki multiple kategori
+3. 1 Judul buku bisa berjumlah dari satu (dibedakan dengan kode buku)
+4. List buku bisa dilihat tanpa harus login
+5. Bisa melakukan pencarian buku melalui judul atau kategori
+6. Untuk Peminjaman buku, pengunjung harus membuat akun sebagai penyewa
+7. Pengunjung bisa register sebagai penyewa, tapi harus di approve oleh admin (cek validasi secara manual)
+8. Admin bisa menambah data buku, kategori dan assign kategori buku
+9.  Penyewa maksimal pinjam 3 buku
+10. Peminjaman maksimal 3 hari
+11. Admin bisa melihat list buku yang sedang dipinjam 
+12. Admin bisa melihat penyewa yang terkena denda (3 hari belum kembalikan buku) lalu melihat detail peminjamannya
+13. Admin bisa melihat log peminjaman buku
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -64,18 +81,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# Requirement SI-RENTAL-BUKU
-
-1. Ada 2 Jenis user : Admin, Penyewa
-2. Buku bisa memiliki multiple kategori
-3. 1 Judul buku bisa berjumlah dari satu (dibedakan dengan kode buku)
-4. List buku bisa dilihat tanpa harus login
-5. Bisa melakukan pencarian buku melalui judul atau kategori
-6. Untuk Peminjaman buku, pengunjung harus membuat akun sebagai penyewa
-7. Pengunjung bisa register sebagai penyewa, tapi harus di approve oleh admin (cek validasi secara manual)
-8. Admin bisa menambah data buku, kategori dan assign kategori buku
-9.  Penyewa maksimal pinjam 3 buku
-10. Peminjaman maksimal 3 hari
-11. Admin bisa melihat list buku yang sedang dipinjam 
-12. Admin bisa melihat penyewa yang terkena denda (3 hari belum kembalikan buku) lalu melihat detail peminjamannya
-13. Admin bisa melihat log peminjaman buku
