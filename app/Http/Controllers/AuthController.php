@@ -10,4 +10,9 @@ class AuthController extends Controller
     {
         return view('FrontEnd.login');
     }
+
+    public function register(Request $request)
+    {
+        return view('FrontEnd.register');
+    }
 }
