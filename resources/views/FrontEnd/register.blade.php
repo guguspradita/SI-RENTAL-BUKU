@@ -24,7 +24,7 @@
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                 <div class="container-fluid mt-4">
                     <div class="row">
-                        <h2>Log In</h2>
+                        <h2>Register</h2>
                     </div>
                     <div class="row">
                         <form control="" class="form-group">
@@ -42,7 +42,7 @@
                         </form>
                     </div>
                     <div class="row">
-                        <p>Already have an account? <a href="{{ url('/login') }}">Sign in</a></p>
+                        <p>Already have an account? <a href="{{ url('/login') }}">Log In</a></p>
                     </div>
                 </div>
             </div>

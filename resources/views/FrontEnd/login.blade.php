@@ -22,19 +22,36 @@
                 <h4 class="company_title">SI - Rental Buku</h4>
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-                <div class="container-fluid mt-4">
+                <div class="container-fluid mt-2">
                     <div class="row">
-                        <h2>Log In</h2>
+                        <h2>Login</h2>
                     </div>
-                    <div class="row">
-                        <form control="" class="form-group">
+                    <div class="row mt-2">
+                        <form control="" class="form-group" method="POST">
+                            @csrf
+                            {{-- cek validasi apakah ada error pada login --}}
+                            @if ($message = Session::get('status'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @endif
                             <div class="row">
                                 <input type="text" name="username" id="username" class="form__input"
-                                    placeholder="Username">
+                                    placeholder="Username" required>
+                                @error('username')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="row">
                                 <input type="password" name="password" id="password" class="form__input"
-                                    placeholder="Password">
+                                    placeholder="Password" required>
+                                @error('password')
+                                    <div class="text-danger">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="row align-self-center">
                                 <input type="submit" value="Submit" class="btn">
@@ -54,7 +71,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/
-                    bootstrap.bundle.min.js"></script>
+                                bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

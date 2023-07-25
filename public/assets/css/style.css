@@ -52,8 +52,8 @@ form{
 	border-bottom: 1px solid #aaa;
 	padding: 1em .5em .5em;
 	padding-left: 2em;
-	outline:none;
-	margin:1.5em auto;
+	outline: none;
+	margin: 1.5em auto;
 	transition: all .5s ease;
 }
 .form__input:focus{
