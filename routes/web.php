@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -21,3 +23,6 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticating']);
 Route::get('/register', [AuthController::class, 'register']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'onlyAdmin']);
+Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'onlyClient']);

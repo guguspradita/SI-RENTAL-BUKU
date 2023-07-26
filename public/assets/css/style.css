@@ -32,6 +32,10 @@
 @media screen and (min-width: 642px) and (max-width:800px){
 	.main-content{width: 70%;}
 }
+.row a {
+	text-decoration: none;
+}
+
 .row > h2{
 	color:#008080;
 }

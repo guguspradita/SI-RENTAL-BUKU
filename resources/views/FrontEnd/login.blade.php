@@ -22,7 +22,7 @@
                 <h4 class="company_title">SI - Rental Buku</h4>
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-                <div class="container-fluid mt-2">
+                <div class="container-fluid mt-4">
                     <div class="row">
                         <h2>Login</h2>
                     </div>
@@ -37,18 +37,18 @@
                             @endif
                             <div class="row">
                                 <input type="text" name="username" id="username" class="form__input"
-                                    placeholder="Username" required>
+                                    placeholder="Username" >
                                 @error('username')
-                                    <div class="text-danger">
+                                    <div class="text-danger text-start p-0">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="row">
                                 <input type="password" name="password" id="password" class="form__input"
-                                    placeholder="Password" required>
+                                    placeholder="Password" >
                                 @error('password')
-                                    <div class="text-danger">
+                                    <div class="text-danger text-start p-0">
                                         {{ $message }}
                                     </div>
                                 @enderror

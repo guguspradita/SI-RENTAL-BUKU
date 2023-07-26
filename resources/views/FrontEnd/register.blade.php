@@ -26,7 +26,7 @@
                     <div class="row">
                         <h2>Register</h2>
                     </div>
-                    <div class="row">
+                    <div class="row mt-2">
                         <form control="" class="form-group">
                             <div class="row">
                                 <input type="text" name="username" id="username" class="form__input"
