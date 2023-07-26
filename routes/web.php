@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -26,9 +27,11 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'authenticating']);
     Route::get('/register', [AuthController::class, 'register']);
     Route::post('/register', [AuthController::class, 'registerProses']);
-    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'onlyAdmin']);
-Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'onlyClient']);
-Route::get('/books', [BookController::class, 'index'])->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('onlyAdmin');
+    Route::get('/profile', [UserController::class, 'profile'])->middleware('onlyClient');
+    Route::get('/books', [BookController::class, 'index']);
+});

@@ -31,6 +31,11 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             // cek apakah user status = active
             if (Auth::user()->status != 'active') {
+                // Jika user status tidak active maka hapus session(logout) 
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
                 $request->session()->flash('status', 'Your account is not active yet. please contact admin!');
                 return redirect('/login');
             }
@@ -58,7 +63,8 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function registerProses(Request $request) {
+    public function registerProses(Request $request)
+    {
 
         $validated = $request->validate([
             'username' => 'required|unique:users|max:255',
@@ -66,11 +72,11 @@ class AuthController extends Controller
             'phone' => 'nullable|numeric|max:16',
             'address' => 'required'
         ]);
-     
+
         // Enkripsi Password menggunakan hash (bycrpt)
         $request['password'] = Hash::make($request->password);
         $user = User::create($request->all());
-        
+
         return redirect('/register')->with('status', 'Register success. Waiting admin for approval!');
     }
 }
