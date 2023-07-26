@@ -37,7 +37,7 @@
                             @endif
                             <div class="row">
                                 <input type="text" name="username" id="username" class="form__input"
-                                    placeholder="Username" >
+                                    placeholder="Username" required>
                                 @error('username')
                                     <div class="text-danger text-start p-0">
                                         {{ $message }}
@@ -46,7 +46,7 @@
                             </div>
                             <div class="row">
                                 <input type="password" name="password" id="password" class="form__input"
-                                    placeholder="Password" >
+                                    placeholder="Password" required>
                                 @error('password')
                                     <div class="text-danger text-start p-0">
                                         {{ $message }}

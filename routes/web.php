@@ -21,9 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'authenticating'])->middleware('guest');
-Route::get('/register', [AuthController::class, 'register'])->middleware('guest');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticating']);
+    Route::get('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'registerProses']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+});
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'onlyAdmin']);
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'onlyClient']);

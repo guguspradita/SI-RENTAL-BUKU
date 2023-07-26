@@ -23,18 +23,42 @@
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                 <div class="container-fluid mt-4">
+                    @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                     <div class="row">
                         <h2>Register</h2>
                     </div>
                     <div class="row mt-2">
-                        <form control="" class="form-group">
+                        <form control="" class="form-group" method="POST">
+                            @csrf
+                            {{-- cek validasi apakah ada error pada login --}}
+                            @if (session()->has('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="row">
                                 <input type="text" name="username" id="username" class="form__input"
-                                    placeholder="Username">
+                                    placeholder="Username" >
                             </div>
                             <div class="row">
                                 <input type="password" name="password" id="password" class="form__input"
                                     placeholder="Password">
+                            </div>
+                            <div class="row">
+                                <input type="text" name="phone" id="phone" class="form__input"
+                                    placeholder="Phone">
+                            </div>
+                            <div class="row">
+                                <input type="text" name="address" id="address" class="form__input"
+                                    placeholder="Address">
                             </div>
                             <div class="row align-self-center">
                                 <input type="submit" value="Submit" class="btn">
@@ -54,7 +78,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/
-                    bootstrap.bundle.min.js"></script>
+                        bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

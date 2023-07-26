@@ -10,7 +10,7 @@ class UserController extends Controller
     public function profile(Request $request)
     {
         // dd(Auth::user());
-        // $request->session()->flush();
+        $request->session()->flush();
         return view('BackEnd.profile');
     }
 }
