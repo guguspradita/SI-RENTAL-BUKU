@@ -34,4 +34,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('onlyAdmin');
     Route::get('/profile', [UserController::class, 'profile'])->middleware('onlyClient');
     Route::get('/books', [BookController::class, 'index']);
-});
+}); 
