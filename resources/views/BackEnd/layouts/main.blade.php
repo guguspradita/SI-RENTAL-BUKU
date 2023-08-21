@@ -13,8 +13,8 @@
         height: 100vh;
     }
 
-    .body-content {
-        background-color: red;
+    .sidebar {
+        background: red;
     }
 </style>
 
@@ -31,12 +31,19 @@
             </div>
         </nav>
         <div class="body-content h-100">
-            Testing
+            <div class="row g-0 h-100">
+                <div class="sidebar col-2">
+                    testing
+                </div>
+                <div class="content col-10">
+                    @yield('content')
+                </div>
+            </div>
         </div>
     </div>
 
     <div>
-        @yield('container')
+        @yield('content')
     </div>
 
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
