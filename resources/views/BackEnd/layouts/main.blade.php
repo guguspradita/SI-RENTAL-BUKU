@@ -12,6 +12,10 @@
     .main {
         height: 100vh;
     }
+
+    .body-content {
+        background-color: red;
+    }
 </style>
 
 <body>
@@ -24,18 +28,10 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                </div>
             </div>
         </nav>
         <div class="body-content h-100">
-            <div class="row g-0 h-100">
-                <div class="sidebar">
-                    ascNA,MCWA
-                </div>
-                <div class="content">
-                    @yield('content')
-                </div>
-            </div>
+            Testing
         </div>
     </div>
 
