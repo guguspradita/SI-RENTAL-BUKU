@@ -46,16 +46,15 @@
             <div class="row g-0 h-100">
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo02">
                     @if (Auth::user()->role_id == 1)
-                        <a href="#">Dashboard</a>
-                        <a href="#">Books</a>
+                        <a href="dashboard">Dashboard</a>
+                        <a href="books">Books</a>
                         <a href="#">Categories</a>
                         <a href="#">Users</a>
                         <a href="#">Rent Log</a>
-                        <a href="#">Profile</a>
-                        <a href="#">Logout</a>
+                        <a href="logout">Logout</a>
                     @else
-                        <a href="#">Profile</a>
-                        <a href="#">Logout</a>
+                        <a href="profile">Profile</a>
+                        <a href="logout">Logout</a>
                     @endif
                 </div>
                 <div class="content p-5 col-lg-10">

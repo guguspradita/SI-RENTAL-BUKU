@@ -31,13 +31,12 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             // cek apakah user status = active
             if (Auth::user()->status != 'active') {
-                // Jika user status tidak active maka hapus session(logout) 
+                // Jika user status tidak active maka hapus session(logout)
                 Auth::logout();
                 $request->session()->invalidate();
                 $request->session()->regenerateToken();
 
-                $request->session()->flash('status', 'Your account is not active yet. please contact admin!');
-                return redirect('/login');
+                return redirect('/login')->with('status', 'Your account is not active yet. please contact admin!');
             }
 
             $request->session()->regenerate();
@@ -51,8 +50,7 @@ class AuthController extends Controller
 
             // return redirect()->intended('/dashboard');
         }
-        $request->session()->flash('status', 'Login Invalid !');
-        return redirect('/login');
+        return redirect('/login')->with('status', 'Login Invalid !');
     }
 
     public function logout(Request $request): RedirectResponse
