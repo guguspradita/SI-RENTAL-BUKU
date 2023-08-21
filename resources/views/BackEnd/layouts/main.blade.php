@@ -14,7 +14,19 @@
     }
 
     .sidebar {
-        background: red;
+        background: rgb(125, 125, 125);
+        color: white;
+    }
+
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 15px 10px;
+    }
+
+    .sidebar a:hover {
+        background: #2e2e2e;
     }
 </style>
 
@@ -32,18 +44,25 @@
         </nav>
         <div class="body-content h-100">
             <div class="row g-0 h-100">
-                <div class="sidebar col-2">
-                    testing
+                <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo02">
+                    @if (Auth::user()->role_id == 1)
+                        <a href="#">Dashboard</a>
+                        <a href="#">Books</a>
+                        <a href="#">Categories</a>
+                        <a href="#">Users</a>
+                        <a href="#">Rent Log</a>
+                        <a href="#">Profile</a>
+                        <a href="#">Logout</a>
+                    @else
+                        <a href="#">Profile</a>
+                        <a href="#">Logout</a>
+                    @endif
                 </div>
-                <div class="content col-10">
+                <div class="content p-5 col-lg-10">
                     @yield('content')
                 </div>
             </div>
         </div>
-    </div>
-
-    <div>
-        @yield('content')
     </div>
 
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
