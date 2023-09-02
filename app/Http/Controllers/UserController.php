@@ -12,4 +12,9 @@ class UserController extends Controller
         // $request->session()->flush();
         return view('BackEnd.profile');
     }
+
+    public function index()
+    {
+        return view('FrontEnd.user');
+    }
 }
