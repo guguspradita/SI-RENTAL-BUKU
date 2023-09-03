@@ -1,5 +1,4 @@
 /* Form Login */
-
 .main-content{
 	width: 50%;
 	border-radius: 20px;
@@ -35,7 +34,6 @@
 .row a {
 	text-decoration: none;
 }
-
 .row > h2{
 	color:#008080;
 }
@@ -62,7 +60,7 @@ form{
 }
 .form__input:focus{
 	border-bottom-color: #008080;
-	box-shadow: 0 0 5px rgba(0,80,80,.4); 
+	box-shadow: 0 0 5px rgba(0,80,80,.4);
 	border-radius: 4px;
 }
 .btn{
@@ -74,11 +72,59 @@ form{
 	border: 1px solid #008080;
 	margin-top: 1.5em;
 	margin-bottom: 1em;
-    
+
 }
 .btn:hover, .btn:focus{
 	background-color: #008080;
 	color:#fff;
 }
-
 /* End Style Login */
+
+/* Start BackEnd Layouts main */
+.main {
+    height: 100vh;
+}
+.sidebar {
+    background: rgb(125, 125, 125);
+    color: white;
+}
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 15px 10px;
+}
+.sidebar a:hover {
+    background: #2e2e2e;
+}
+.active {
+    background-color: #2e2e2e;
+    border-right: solid 10px orange;
+}
+/* End BackEnd Layouts main */
+
+/* Start BackEnd Dashboard */
+.card-data {
+    border: solid;
+    padding: 20px 30px;
+    color: #fff;
+}
+.card-data.book {
+    background-color: teal;
+}
+.card-data.category {
+    background-color: orangered;
+}
+.card-data.user {
+    background-color: purple;
+}
+.card-data i {
+    font-size: 80px;
+}
+.card-desc {
+    font-size: 25px;
+}
+.card-count {
+    font-size: 25px;
+}
+/* End BackEnd Dashboard */

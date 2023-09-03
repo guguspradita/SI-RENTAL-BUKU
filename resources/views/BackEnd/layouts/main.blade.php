@@ -7,32 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rental Buku | @yield('title')</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
-<style>
-    .main {
-        height: 100vh;
-    }
-
-    .sidebar {
-        background: rgb(125, 125, 125);
-        color: white;
-    }
-
-    .sidebar a {
-        color: white;
-        text-decoration: none;
-        display: block;
-        padding: 15px 10px;
-    }
-
-    .sidebar a:hover {
-        background: #2e2e2e;
-    }
-    .active {
-        background-color: #2e2e2e;
-        border-right: solid 10px orange;
-    }
-</style>
 
 <body>
     <div class="main d-flex flex-column justify-content-between">
