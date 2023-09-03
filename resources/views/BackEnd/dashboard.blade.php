@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>Welcome, {{ Auth::user()->username }}</h1>
-    <div class="row mt-5">
+    <div class="row my-5">
         <div class="col-lg-4">
             <div class="card-data book">
                 <div class="row">
@@ -44,6 +44,30 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="mt-5">
+        <h2>#Rent Log</h2>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">User</th>
+                <th scope="col">Book Title</th>
+                <th scope="col">Rent Date</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Actual Return Date</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {{-- <th scope="row">1</th> --}}
+                <td colspan="7" style="text-align: center">No Data</td>
+              </tr>
+            </tbody>
+          </table>
     </div>
 
 @endsection

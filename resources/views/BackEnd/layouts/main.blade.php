@@ -15,7 +15,7 @@
     <div class="main d-flex flex-column justify-content-between">
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Rental Buku</a>
+                <a class="navbar-brand" href="#">Sistem Informasi Rental Buku</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
