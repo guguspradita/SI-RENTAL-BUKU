@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-6 d-flex flex-column justify-content-center align-items-end">
                         <div class="card-desc">Books</div>
-                        <div class="card-count">109</div>
+                        <div class="card-count">{{ $book_count }}</div>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-6 d-flex flex-column justify-content-center align-items-end">
                         <div class="card-desc">Categories</div>
-                        <div class="card-count">109</div>
+                        <div class="card-count">{{ $category_count }}</div>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-6 d-flex flex-column justify-content-center align-items-end">
                         <div class="card-desc">Users</div>
-                        <div class="card-count">109</div>
+                        <div class="card-count">{{ $user_count }}</div>
                     </div>
                 </div>
             </div>

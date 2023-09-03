@@ -106,7 +106,7 @@ form{
 /* Start BackEnd Dashboard */
 .card-data {
     border: solid;
-    padding: 20px 30px;
+    padding: 20px 40px;
     color: #fff;
 }
 .card-data.book {
@@ -119,7 +119,7 @@ form{
     background-color: purple;
 }
 .card-data i {
-    font-size: 80px;
+    font-size: 60px;
 }
 .card-desc {
     font-size: 25px;
