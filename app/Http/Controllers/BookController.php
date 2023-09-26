@@ -10,6 +10,6 @@ class BookController extends Controller
     {
         // dd('Ini halaman books');
         // $request->session()->flush();
-        return view('FrontEnd.books');
+        return view('BackEnd.books');
     }
 }

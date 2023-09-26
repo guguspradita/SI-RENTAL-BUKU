@@ -8,6 +8,6 @@ class RentLogController extends Controller
 {
     public function index()
     {
-        return view('FrontEnd.rent_log');
+        return view('BackEnd.rent_log');
     }
 }

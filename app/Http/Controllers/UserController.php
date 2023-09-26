@@ -15,6 +15,6 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('FrontEnd.user');
+        return view('BackEnd.user');
     }
 }
