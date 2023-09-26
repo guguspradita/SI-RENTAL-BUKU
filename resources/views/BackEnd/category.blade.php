@@ -4,7 +4,16 @@
 @section('content')
     <h1>Category List</h1>
 
-    <div class="my-5">
+    <div class="mt-2 d-flex justify-content-end">
+        <a href="category-add" class="btn btn-primary">Add Data</a>
+    </div>
+
+    <div class="my-4">
+        @if (Session::has('success'))
+            <div class="alert alert-primary">
+                {{ Session('success') }}
+            </div>
+        @endif
         <div class="table-responsive">
             <table class="table table-hover border border-2">
                 <thead>
