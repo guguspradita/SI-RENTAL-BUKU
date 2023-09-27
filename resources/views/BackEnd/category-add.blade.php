@@ -3,8 +3,18 @@
 
 @section('content')
     <h2>Add New Category</h2>
-
-    <div class="mt-5 w-75">
+    <div class="mt-4 w-75">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+    <div class="mt-4 w-75">
         <form action="category-add" method="POST">
             @csrf
             <div class="mb-3">
