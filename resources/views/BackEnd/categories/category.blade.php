@@ -29,7 +29,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="#">edit</a>
+                                <a href="category-edit/{{ $item->slug }}">edit</a>
                                 <a href="#">delete</a>
                             </td>
                         </tr>

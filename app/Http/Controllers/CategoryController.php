@@ -11,12 +11,12 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('BackEnd.category', ["categories" => $category]);
+        return view('BackEnd.categories.category', ["categories" => $category]);
     }
 
     public function add()
     {
-        return view('BackEnd.category-add');
+        return view('BackEnd.categories.category-add');
     }
 
     public function store(Request $request)
@@ -30,6 +30,26 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name),
         ]);
         $category->save();
-        return redirect('categories')->with(['success' => 'Data Berhasi Tersimpan!']);
+        return redirect('categories')->with(['success' => 'Category Berhasi Tersimpan!']);
+    }
+
+    public function edit($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        return view('BackEnd.categories.category-edit', ['category' => $category]);
+    }
+
+    public function update(Request $request, $slug)
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:categories|max:255',
+        ]);
+
+        $category = Category::where('slug', $slug)->first();
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+        return redirect('categories')->with(['success' => 'Category Berhasi Terupdate!']);
     }
 }
