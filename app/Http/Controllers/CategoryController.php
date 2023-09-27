@@ -50,6 +50,24 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => Str::slug($request->name),
         ]);
-        return redirect('categories')->with(['success' => 'Category Berhasi Terupdate!']);
+        return redirect('categories')->with(['success' => 'Category Berhasil Terupdate!']);
+    }
+
+    public function delete($slug)
+    {
+        $category = Category::where('slug', $slug)->delete();
+        return redirect('categories')->with(['success' => 'Category Berhasil Dihapus!']);
+    }
+
+    public function deleteCategory()
+    {
+        $category = Category::onlyTrashed()->get();
+        return view('BackEnd.categories.category-delete', ['deletedCategories' => $category]);
+    }
+
+    public function restore($slug)
+    {
+        $category = Category::withTrashed()->where('slug', $slug)->restore();
+        return redirect('categories')->with(['success' => 'Category Restore Berhasil Dikembalikan!']);
     }
 }

@@ -5,6 +5,7 @@
     <h1>Category List</h1>
 
     <div class="mt-2 d-flex justify-content-end">
+        <a href="category-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
         <a href="category-add" class="btn btn-primary">Add Data</a>
     </div>
 
@@ -29,8 +30,16 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="category-edit/{{ $item->slug }}">edit</a>
-                                <a href="#">delete</a>
+                                <a href="category-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i class="bi bi-pencil-square"></i></a>
+                                <form action="category-delete/{{ $item->slug }}"
+                                    method="POST" class="d-inline">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger btn-sm"
+                                        onclick="return confirm('yakin ingin menghapus?')">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

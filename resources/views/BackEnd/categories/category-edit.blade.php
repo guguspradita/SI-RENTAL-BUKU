@@ -1,5 +1,5 @@
 @extends('BackEnd.layouts.main')
-@section('title', 'Add Category')
+@section('title', 'Edit Category')
 
 @section('content')
     <h2>Edit Category</h2>
