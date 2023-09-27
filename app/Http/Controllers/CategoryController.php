@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -20,11 +21,15 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $this->validate($request, [
             'name' => 'required|unique:categories|max:255',
         ]);
 
-        $category = Category::create($request->all());
+        $category = new Category([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
+        $category->save();
         return redirect('categories')->with(['success' => 'Data Berhasi Tersimpan!']);
     }
 }
