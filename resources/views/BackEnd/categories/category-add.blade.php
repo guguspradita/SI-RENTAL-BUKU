@@ -22,6 +22,7 @@
                 <input type="text" name="name" class="form-control" id="name" placeholder="Category Name">
             </div>
             <button class="btn btn-success" type="submit">Save</button>
+            <a href="categories" class="btn btn-primary">Cancel</a>
         </form>
     </div>
 @endsection

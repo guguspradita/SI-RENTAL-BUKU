@@ -23,6 +23,7 @@
                 <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}" placeholder="Category Name">
             </div>
             <button class="btn btn-success" type="submit">Update</button>
+            <a href="/categories" class="btn btn-primary">Cancel</a>
         </form>
     </div>
 @endsection

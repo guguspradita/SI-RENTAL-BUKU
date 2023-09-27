@@ -46,6 +46,8 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::where('slug', $slug)->first();
+        $category->slug = null;
+
         $category->update([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
