@@ -30,7 +30,7 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name),
         ]);
         $category->save();
-        return redirect('categories')->with(['success' => 'Category Berhasi Tersimpan!']);
+        return redirect('categories')->with(['success' => 'Category Berhasil Tersimpan!']);
     }
 
     public function edit($slug)
