@@ -22,15 +22,17 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'code_book' => 'required|unique:books|max:255',
-            'title' => 'required|unique:books|max:255',
+            'book_code' => 'required|unique:books|max:255',
+            'title' => 'required|max:255',
+            // 'cover' => 'required|file|mimes:jpeg,png,jpg,svg|max:5120',
         ]);
 
         $book = new Book([
-            'code_book' => $request->code_book,
+            'book_code' => $request->book_code,
+            'title' => $request->title,
             'slug' => Str::slug($request->title),
         ]);
         $book->save();
-        return redirect('categories')->with(['success' => 'New Book Berhasil Tersimpan!']);
+        return redirect('/books')->with(['success' => 'New Book Berhasil Tersimpan!']);
     }
 }
