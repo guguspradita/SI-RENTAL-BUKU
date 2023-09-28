@@ -31,7 +31,7 @@
                         <a href="/dashboard" @if (Request()->route()->uri() == 'dashboard')
                             class="active"
                         @endif>Dashboard</a>
-                        <a href="/books" @if (Request()->route()->uri() == 'books')
+                        <a href="/books" @if (Request()->route()->uri() == 'books' || Request()->route()->uri() == 'book-add')
                             class="active"
                         @endif>Books</a>
                         <a href="/categories" @if (Request()->route()->uri() == 'categories' || Request()->route()->uri() == 'category-add' || Request()->route()->uri() == 'category-edit/{slug}' || Request()->route()->uri() == 'category-deleted')

@@ -24,14 +24,22 @@ class BookController extends Controller
         $this->validate($request, [
             'book_code' => 'required|unique:books|max:255',
             'title' => 'required|max:255',
-            // 'cover' => 'required|file|mimes:jpeg,png,jpg,svg|max:5120',
+            'cover' => 'file|mimes:jpeg,png,jpg,svg|max:5120',
         ]);
 
-        $book = new Book([
-            'book_code' => $request->book_code,
-            'title' => $request->title,
-            'slug' => Str::slug($request->title),
-        ]);
+        // validasi gambar
+        if ($request->file('cover')) {
+            $extension = $request->file('cover')->getClientOriginalExtension();
+            $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
+            $request->file('cover')->storeAs('cover', $newName);
+
+            $book = new Book([
+                'book_code' => $request->book_code,
+                'title' => $request->title,
+                'cover' => $newName,
+                'slug' => Str::slug($request->title),
+            ]);
+        }
         $book->save();
         return redirect('/books')->with(['success' => 'New Book Berhasil Tersimpan!']);
     }
