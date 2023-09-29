@@ -22,6 +22,7 @@
                         <th scope="col">No.</th>
                         <th scope="col">Code Book</th>
                         <th scope="col">Title</th>
+                        <th scope="col">Categories</th>
                         <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -32,6 +33,11 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->book_code }}</td>
                             <td>{{ $item->title }}</td>
+                            <td>
+                                @foreach ($item->categories as $category)
+                                    {{ $category->name }}
+                                @endforeach
+                            </td>
                             <td>{{ $item->status }}</td>
                             <td>
                                 <a href="category-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i class="bi bi-pencil-square"></i></a>
