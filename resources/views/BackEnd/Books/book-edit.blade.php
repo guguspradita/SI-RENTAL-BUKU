@@ -20,7 +20,8 @@
             @method('put')
             <div class="mb-3">
                 <label for="code" class="form-label">Code Book</label>
-                <input type="text" name="book_code" class="form-control" id="code" placeholder="Book Name" value="{{ $book->book_code }}">
+                <input type="text" name="book_code" class="form-control" id="code" placeholder="Book Name"
+                    value="{{ $book->book_code }}">
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -32,17 +33,34 @@
                 <input type="file" name="cover" id="cover" class="form-control">
             </div>
             <div class="mb-3">
-                <img src="/cover/{{ $book->cover }}" class="img-responsive border"
-                    style="max-height:100px; max-width:100px;" alt="">
+                <label for="currentCover" class="form-label">Current Cover</label>
+                <div class="">
+                    @if ($book->cover != '')
+                        <img src="{{ asset('storage/cover/' . $book->cover) }}" class="img-responsive border"
+                            style="max-width:150px;" alt="">
+                    @else
+                        <img src="{{ asset('images/no_cover.jpg') }}" class="img-responsive border"
+                            style="max-width:150px;" alt="">
+                    @endif
+                </div>
             </div>
+
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
-                <select name="categories[]" id="category" class="form-select select-multiple" multiple aria-label="Default select example">
-                    {{-- <option value="">Choose Category</option> --}}
-                    @foreach ($category as $item)
+                <select name="categories[]" id="category" class="form-select select-multiple" multiple
+                    aria-label="Default select example">
+                    @foreach ($categories as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="mb-3">
+                <label for="currentCategory" class="form-label">Current Category</label>
+                <ul>
+                    @foreach ($book->categories as $category)
+                        <li>{{ $category->name }}</li>
+                    @endforeach
+                </ul>
             </div>
             <button class="btn btn-success" type="submit">Update</button>
             <a href="/books" class="btn btn-primary">Cancel</a>

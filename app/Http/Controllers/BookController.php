@@ -42,7 +42,7 @@ class BookController extends Controller
         $request['cover'] = $newName;
 
         $book = Book::create($request->all());
-        $book->categories()->sync($request->categories);
+        $book->categories()->sync($request->categories); // sync relationship model book
         return redirect('/books')->with(['success' => 'New Book Berhasil Tersimpan!']);
     }
 
@@ -50,6 +50,11 @@ class BookController extends Controller
     {
         $book = Book::where('slug', $slug)->first();
         $category = Category::all();
-        return view('BackEnd.Books.book-edit', ['book' => $book, 'category' => $category]);
+        return view('BackEnd.Books.book-edit', ['book' => $book, 'categories' => $category]);
+    }
+
+    public function update(Request $request, $slug)
+    {
+
     }
 }
