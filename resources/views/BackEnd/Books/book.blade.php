@@ -35,14 +35,14 @@
                             <td>{{ $item->title }}</td>
                             <td>
                                 @foreach ($item->categories as $category)
-                                    {{ $category->name }}
+                                    <button class="btn btn-warning btn-sm mb-1">{{ $category->name }}</button> <br>
                                 @endforeach
                             </td>
                             <td>{{ $item->status }}</td>
                             <td>
-                                <a href="category-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i class="bi bi-pencil-square"></i></a>
-                                <form action="category-delete/{{ $item->slug }}"
-                                    method="POST" class="d-inline">
+                                <a href="book-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <form action="book-delete/{{ $item->slug }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm"

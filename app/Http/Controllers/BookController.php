@@ -45,4 +45,11 @@ class BookController extends Controller
         $book->categories()->sync($request->categories);
         return redirect('/books')->with(['success' => 'New Book Berhasil Tersimpan!']);
     }
+
+    public function edit($slug)
+    {
+        $book = Book::where('slug', $slug)->first();
+        $category = Category::all();
+        return view('BackEnd.Books.book-edit', ['book' => $book, 'category' => $category]);
+    }
 }
