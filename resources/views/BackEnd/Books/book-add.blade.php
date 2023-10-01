@@ -30,11 +30,12 @@
             </div>
             <div class="mb-3">
                 <label for="cover" class="form-label">Cover</label>
-                <input type="file" name="cover" id="cover" class="form-control">
+                <input type="file" name="cover" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
-                <select name="categories[]" id="category" class="form-select select-multiple" multiple aria-label="Default select example">
+                <select name="categories[]" id="category" class="form-control select-multiple" multiple
+                    aria-label="Default select example">
                     {{-- <option value="">Choose Category</option> --}}
                     @foreach ($categories as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
