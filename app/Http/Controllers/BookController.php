@@ -12,13 +12,13 @@ class BookController extends Controller
     public function index(Request $request)
     {
         $books = Book::all();
-        return view('BackEnd.Books.book', ['books' => $books]);
+        return view('BackEnd.books.book', ['books' => $books]);
     }
 
     public function add()
     {
         $categories = Category::all();
-        return view('BackEnd.Books.book-add', ['categories' => $categories]);
+        return view('BackEnd.books.book-add', ['categories' => $categories]);
     }
 
     public function store(Request $request)
@@ -53,7 +53,7 @@ class BookController extends Controller
         $book = Book::where('slug', $slug)->first();
         // dd($book);
         $category = Category::all();
-        return view('BackEnd.Books.book-edit', ['book' => $book, 'categories' => $category]);
+        return view('BackEnd.books.book-edit', ['book' => $book, 'categories' => $category]);
     }
 
     public function update(Request $request, $slug)
@@ -92,5 +92,11 @@ class BookController extends Controller
         // dd($book);
         $book->delete();
         return redirect('/books')->with(['success' => 'Books Berhasil Dihapus!']);
+    }
+
+    public function deleteBook()
+    {
+        $book = Book::onlyTrashed()->get();
+        return view('BackEnd.books.book-delete', ['deletedBook' => $book]);
     }
 }

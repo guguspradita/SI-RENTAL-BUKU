@@ -5,8 +5,8 @@
     <h1>Books List</h1>
 
     <div class="mt-2 d-flex justify-content-end">
-        {{-- <a href="book-deleted" class="btn btn-secondary me-3">View Deleted Data</a> --}}
-        <a href="book-add" class="btn btn-primary">Add Data</a>
+        <a href="/book-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
+        <a href="/book-add" class="btn btn-primary">Add Data</a>
     </div>
 
     <div class="my-4">

@@ -5,8 +5,8 @@
     <h1>Category List</h1>
 
     <div class="mt-2 d-flex justify-content-end">
-        <a href="category-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
-        <a href="category-add" class="btn btn-primary">Add Data</a>
+        <a href="/category-deleted" class="btn btn-secondary me-3">View Deleted Data</a>
+        <a href="/category-add" class="btn btn-primary">Add Data</a>
     </div>
 
     <div class="my-4">
