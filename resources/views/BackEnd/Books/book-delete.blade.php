@@ -25,16 +25,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($deletedBook as $item)
+                    @forelse ($deletedBook as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->book_code }}</td>
                             <td>{{ $item->title }}</td>
-                            <td><a href="category-restore/{{ $item->slug }}" class="btn btn-success btn-sm me-2"
+                            <td><a href="/book-restore/{{ $item->slug }}" class="btn btn-success btn-sm me-2"
                                     onclick="return confirm('yakin ingin mengembalikan data?')"><i
                                         class="bi bi-arrow-clockwise"></i></a></td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-dark bg-white text-center">Data Masih Kosong
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

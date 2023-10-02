@@ -1,5 +1,5 @@
 @extends('BackEnd.layouts.main')
-@section('title', 'Category')
+@section('title', 'Dashboard Category')
 
 @section('content')
     <h1>Category List</h1>
@@ -25,14 +25,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- @dd($categories) --}}
                     @forelse ($categories as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
                             <td>
-                                <a href="category-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
+                                <a href="/category-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
                                         class="bi bi-pencil-square"></i></a>
-                                <form action="category-delete/{{ $item->slug }}" method="POST" class="d-inline">
+                                <form action="/category-delete/{{ $item->slug }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm"

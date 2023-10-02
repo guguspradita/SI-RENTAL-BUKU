@@ -57,7 +57,9 @@ class CategoryController extends Controller
 
     public function delete($slug)
     {
-        $category = Category::where('slug', $slug)->delete();
+        $category = Category::where('slug', $slug)->first();
+        $category->delete();
+
         return redirect('categories')->with(['success' => 'Category Berhasil Dihapus!']);
     }
 

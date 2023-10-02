@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($deletedCategories as $item)
+                    @forelse ($deletedCategories as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->name }}</td>
@@ -32,7 +32,12 @@
                                     onclick="return confirm('yakin ingin mengembalikan data?')"><i
                                         class="bi bi-arrow-clockwise"></i></a></td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-dark bg-white text-center">Data Masih Kosong
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

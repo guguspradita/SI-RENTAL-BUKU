@@ -99,4 +99,11 @@ class BookController extends Controller
         $book = Book::onlyTrashed()->get();
         return view('BackEnd.books.book-delete', ['deletedBook' => $book]);
     }
+
+    public function restore($slug)
+    {
+        $book = Book::withTrashed()->where('slug', $slug)->first();
+        $book->restore();
+        return redirect('/books')->with(['success' => 'Book Restore Berhasil Dikembalikan!']);
+    }
 }

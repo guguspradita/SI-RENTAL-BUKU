@@ -1,5 +1,5 @@
 @extends('BackEnd.layouts.main')
-@section('title', 'Dashboard')
+@section('title', 'Dashboard Book')
 
 @section('content')
     <h1>Books List</h1>
