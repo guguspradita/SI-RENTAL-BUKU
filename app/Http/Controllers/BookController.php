@@ -85,4 +85,12 @@ class BookController extends Controller
 
         return redirect('/books')->with(['success' => 'Update Book Berhasil Tersimpan!']);
     }
+
+    public function delete($slug)
+    {
+        $book = Book::where('slug', $slug)->first();
+        // dd($book);
+        $book->delete();
+        return redirect('/books')->with(['success' => 'Books Berhasil Dihapus!']);
+    }
 }

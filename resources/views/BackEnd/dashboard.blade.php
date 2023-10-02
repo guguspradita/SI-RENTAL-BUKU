@@ -64,8 +64,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        {{-- <th scope="row">1</th> --}}
-                        <td colspan="7" style="text-align: center">No Data</td>
+                        <td colspan="7" class="text-dark bg-white text-center">Data Masih Kosong
+                        </td>
                     </tr>
                 </tbody>
             </table>

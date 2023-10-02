@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($books as $item)
+                    @forelse ($books as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->book_code }}</td>
@@ -40,9 +40,9 @@
                             </td>
                             <td>{{ $item->status }}</td>
                             <td>
-                                <a href="book-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
+                                <a href="/book-edit/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
                                         class="bi bi-pencil-square"></i></a>
-                                <form action="book-delete/{{ $item->slug }}" method="POST" class="d-inline">
+                                <form action="/book-delete/{{ $item->slug }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm"
@@ -52,7 +52,12 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-dark bg-white text-center">Data Masih Kosong
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
