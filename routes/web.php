@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/users', [UserController::class, 'index']);
     Route::get('/registed-users', [UserController::class, 'registeredUser']);
+    Route::post('/registed-users', [UserController::class, 'store']);
 
     Route::get('/rent-log', [RentLogController::class, 'index']);
 });

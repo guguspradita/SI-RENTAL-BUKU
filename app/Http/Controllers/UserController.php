@@ -24,4 +24,15 @@ class UserController extends Controller
     {
         return view('BackEnd.users.registered-user');
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'username' => 'required|max:255',
+            'password' => 'required|max:255',
+            'phone' => 'required|max:12',
+            'address' => 'required|max:255',
+        ]);
+        dd($request->all());
+    }
 }
