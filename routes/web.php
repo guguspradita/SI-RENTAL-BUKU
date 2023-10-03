@@ -55,5 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
 
     Route::get('/users', [UserController::class, 'index']);
+    Route::get('/registed-users', [UserController::class, 'registeredUser']);
+
     Route::get('/rent-log', [RentLogController::class, 'index']);
 });
