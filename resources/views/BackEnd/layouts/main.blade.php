@@ -37,7 +37,8 @@
                                 Request()->route()->uri() == 'category-add' ||
                                 Request()->route()->uri() == 'category-edit/{slug}' ||
                                 Request()->route()->uri() == 'category-deleted') class="active" @endif>Categories</a>
-                        <a href="/users" @if (Request()->route()->uri() == 'users') class="active" @endif>Users</a>
+                        <a href="/users" @if (Request()->route()->uri() == 'users' ||
+                                Request()->route()->uri() == 'registed-users') class="active" @endif>Users</a>
                         <a href="/rent-log" @if (Request()->route()->uri() == 'rent-log') class="active" @endif>Rent Log</a>
                         <a href="/logout">Logout</a>
                     @else
