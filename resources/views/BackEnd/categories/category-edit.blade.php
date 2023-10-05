@@ -3,7 +3,7 @@
 
 @section('content')
     <h2>Edit Category</h2>
-    <div class="mt-4 w-75">
+    <div class="mt-4">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -20,7 +20,8 @@
             @method('put')
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}" placeholder="Category Name">
+                <input type="text" name="name" class="form-control" id="name" value="{{ $category->name }}"
+                    placeholder="Category Name">
             </div>
             <button class="btn btn-success" type="submit">Update</button>
             <a href="/categories" class="btn btn-primary">Cancel</a>
