@@ -41,7 +41,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/users-detail/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
+                                <a href="/user-detail/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
                                         class="bi bi-info-circle me-2"></i>Detail</a>
                             </td>
                         </tr>

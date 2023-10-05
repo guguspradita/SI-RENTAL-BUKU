@@ -64,7 +64,7 @@ class AuthController extends Controller
     public function registerProses(Request $request)
     {
 
-        $validated = $request->validate([
+        $request->validate([
             'username' => 'required|unique:users|max:255',
             'password' => 'required|max:255',
             'phone' => 'nullable|numeric|max:16',
@@ -73,6 +73,8 @@ class AuthController extends Controller
 
         // Enkripsi Password menggunakan hash (bycrpt)
         $request['password'] = Hash::make($request->password);
+        $request['slug'] = $request->username;
+        // dd($request->all());
         $user = User::create($request->all());
 
         return redirect('/register')->with('status', 'Register success. Waiting admin for approval!');
