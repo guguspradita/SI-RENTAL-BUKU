@@ -35,7 +35,7 @@
                             <td>
                                 <a href="/user-detail/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
                                         class="bi bi-info-circle me-2"></i>Detail</a>
-                                <form action="/users-banned/{{ $item->slug }}" method="POST" class="d-inline">
+                                <form action="/user-banned/{{ $item->slug }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm"
