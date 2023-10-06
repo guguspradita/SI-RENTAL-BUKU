@@ -39,4 +39,24 @@ class UserController extends Controller
         $user->save();
         return redirect('/user-detail/' . $slug)->with(['success' => 'User Approved Successfully!']);
     }
+
+    public function delete($slug)
+    {
+        $user = USer::where('slug', $slug)->first();
+        $user->delete();
+
+        return redirect('/users')->with(['success' => 'User Deleted Successfully!']);
+    }
+
+    public function deleteUser()
+    {
+        $user = User::onlyTrashed()->get();
+        return view('BackEnd.users.user-delete', ['deleteUser' => $user]);
+    }
+
+    public function restore($slug)
+    {
+        $users = User::withTrashed()->where('slug', $slug)->restore();
+        return redirect('/users')->with(['success' => 'User Restore Successfully!']);
+    }
 }

@@ -5,7 +5,7 @@
     <h1>User List</h1>
 
     <div class="mt-2 d-flex justify-content-end">
-        <a href="/banned-users" class="btn btn-secondary me-3">View Banned User</a>
+        <a href="/users-deleted" class="btn btn-secondary me-3">View Banned User</a>
         <a href="/registed-users" class="btn btn-primary">New Registered User</a>
     </div>
 
@@ -35,7 +35,7 @@
                             <td>
                                 <a href="/user-detail/{{ $item->slug }}" class="btn btn-success btn-sm me-2"><i
                                         class="bi bi-info-circle me-2"></i>Detail</a>
-                                <form action="/user-banned/{{ $item->slug }}" method="POST" class="d-inline">
+                                <form action="/user-delete/{{ $item->slug }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('delete')
                                     <button class="btn btn-danger btn-sm"
