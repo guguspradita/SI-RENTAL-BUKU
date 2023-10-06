@@ -44,7 +44,7 @@
                         <a href="/rent-log" @if (Request()->route()->uri() == 'rent-log') class="active" @endif>Rent Log</a>
                         <a href="/logout">Logout</a>
                     @else
-                        <a href="/profile">Profile</a>
+                        <a href="/profile" @if (Request()->route()->uri() == 'profile') class="active" @endif>Profile</a>
                         <a href="/logout">Logout</a>
                     @endif
                 </div>

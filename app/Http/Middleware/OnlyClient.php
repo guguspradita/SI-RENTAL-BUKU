@@ -17,8 +17,8 @@ class OnlyClient
     public function handle(Request $request, Closure $next): Response
     {
         // Halaman profile hanya boleh diakses oleh clien(2)
-        if (Auth::user()->role_id != 2 ) {
-            return redirect('/books');
+        if (Auth::user()->role_id != 2) {
+            return redirect('/');
         }
         return $next($request);
     }

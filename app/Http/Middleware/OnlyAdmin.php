@@ -17,8 +17,8 @@ class OnlyAdmin
     public function handle(Request $request, Closure $next): Response
     {
         // Halaman dashboard hanya boleh diakses oleh admin (1)
-        if (Auth::user()->role_id != 1 ) {
-            return redirect('/books');
+        if (Auth::user()->role_id != 1) {
+            return redirect('/');
         }
 
         return $next($request);

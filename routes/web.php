@@ -21,8 +21,8 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('/dashboard');
-})->middleware('auth');
+    return view('welcome');
+});
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -33,10 +33,11 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('onlyAdmin');
     Route::get('/profile', [UserController::class, 'profile'])->middleware('onlyClient');
 
-    Route::middleware(['only_admin'])->group(function () {
+    Route::middleware(['onlyAdmin'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index']);
+
         Route::get('/books', [BookController::class, 'index']);
         Route::get('/book-add', [BookController::class, 'add']);
         Route::post('/book-add', [BookController::class, 'store']);
