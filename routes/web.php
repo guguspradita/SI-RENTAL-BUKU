@@ -21,7 +21,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/dashboard');
 })->middleware('auth');
 
 Route::middleware(['guest'])->group(function () {
@@ -36,32 +36,33 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('onlyAdmin');
     Route::get('/profile', [UserController::class, 'profile'])->middleware('onlyClient');
 
-    Route::get('/books', [BookController::class, 'index']);
-    Route::get('/book-add', [BookController::class, 'add']);
-    Route::post('/book-add', [BookController::class, 'store']);
-    Route::get('/book-edit/{slug}', [BookController::class, 'edit']);
-    Route::post('/book-edit/{slug}', [BookController::class, 'update']);
-    Route::delete('/book-delete/{slug}', [BookController::class, 'delete']);
-    Route::get('/book-deleted', [BookController::class, 'deleteBook']);
-    Route::get('/book-restore/{slug}', [BookController::class, 'restore']);
+    Route::middleware(['only_admin'])->group(function () {
+        Route::get('/books', [BookController::class, 'index']);
+        Route::get('/book-add', [BookController::class, 'add']);
+        Route::post('/book-add', [BookController::class, 'store']);
+        Route::get('/book-edit/{slug}', [BookController::class, 'edit']);
+        Route::post('/book-edit/{slug}', [BookController::class, 'update']);
+        Route::delete('/book-delete/{slug}', [BookController::class, 'delete']);
+        Route::get('/book-deleted', [BookController::class, 'deleteBook']);
+        Route::get('/book-restore/{slug}', [BookController::class, 'restore']);
 
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/category-add', [CategoryController::class, 'add']);
-    Route::post('/category-add', [CategoryController::class, 'store']);
-    Route::get('/category-edit/{slug}', [CategoryController::class, 'edit']);
-    Route::put('/category-edit/{slug}', [CategoryController::class, 'update']);
-    Route::delete('/category-delete/{slug}', [CategoryController::class, 'delete']);
-    Route::get('/category-deleted', [CategoryController::class, 'deleteCategory']);
-    Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
+        Route::get('/categories', [CategoryController::class, 'index']);
+        Route::get('/category-add', [CategoryController::class, 'add']);
+        Route::post('/category-add', [CategoryController::class, 'store']);
+        Route::get('/category-edit/{slug}', [CategoryController::class, 'edit']);
+        Route::put('/category-edit/{slug}', [CategoryController::class, 'update']);
+        Route::delete('/category-delete/{slug}', [CategoryController::class, 'delete']);
+        Route::get('/category-deleted', [CategoryController::class, 'deleteCategory']);
+        Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
 
-    Route::get('/users', [UserController::class, 'index']);
-    Route::get('/registed-users', [UserController::class, 'registeredUser']);
-    Route::get('/user-detail/{slug}', [UserController::class, 'show']);
-    Route::get('/user-approve/{slug}', [UserController::class, 'approve']);
-    Route::delete('/user-delete/{slug}', [UserController::class, 'delete']);
-    Route::get('/users-deleted', [UserController::class, 'deleteUser']);
-    Route::get('/user-restore/{slug}', [UserController::class, 'restore']);
-
+        Route::get('/users', [UserController::class, 'index']);
+        Route::get('/registed-users', [UserController::class, 'registeredUser']);
+        Route::get('/user-detail/{slug}', [UserController::class, 'show']);
+        Route::get('/user-approve/{slug}', [UserController::class, 'approve']);
+        Route::delete('/user-delete/{slug}', [UserController::class, 'delete']);
+        Route::get('/users-deleted', [UserController::class, 'deleteUser']);
+        Route::get('/user-restore/{slug}', [UserController::class, 'restore']);
+    });
 
     Route::get('/rent-log', [RentLogController::class, 'index']);
 });
