@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,8 @@ class UserController extends Controller
 {
     public function profile(Request $request)
     {
-        // $request->session()->flush();
-        return view('BackEnd.profile');
+        $books = Book::all();
+        return view('BackEnd.profile', ['books' => $books]);
     }
 
     public function index()
