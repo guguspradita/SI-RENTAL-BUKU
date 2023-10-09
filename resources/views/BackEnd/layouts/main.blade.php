@@ -43,9 +43,11 @@
                                     Request()->route()->uri() == 'users-deleted' ||
                                     Request()->route()->uri() == 'registed-users') class="active" @endif>Users</a>
                             <a href="/rent-log" @if (Request()->route()->uri() == 'rent-log') class="active" @endif>Rent Log</a>
+                            <a href="/" @if (Request()->route()->uri() == '/') class="active" @endif>Book List</a>
                             <a href="/logout">Logout</a>
                         @else
                             <a href="/profile" @if (Request()->route()->uri() == 'profile') class="active" @endif>Profile</a>
+                            <a href="/" @if (Request()->route()->uri() == '/') class="active" @endif>Book List</a>
                             <a href="/logout">Logout</a>
                         @endif
                     @else
