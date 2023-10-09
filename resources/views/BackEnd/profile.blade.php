@@ -14,7 +14,7 @@
                         <a href="/detail-book" class="btn btn-primary ">Go somewhere</a>
                     </div>
                 </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
 @endsection

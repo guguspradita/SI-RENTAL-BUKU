@@ -27,25 +27,29 @@
         <div class="body-content h-100">
             <div class="row g-0 h-100">
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarTogglerDemo02">
-                    @if (Auth::user()->role_id == 1)
-                        <a href="/dashboard" @if (Request()->route()->uri() == 'dashboard') class="active" @endif>Dashboard</a>
-                        <a href="/books" @if (Request()->route()->uri() == 'books' ||
-                                Request()->route()->uri() == 'book-add' ||
-                                Request()->route()->uri() == 'book-edit/{slug}' ||
-                                Request()->route()->uri() == 'book-delete') class="active" @endif>Books</a>
-                        <a href="/categories" @if (Request()->route()->uri() == 'categories' ||
-                                Request()->route()->uri() == 'category-add' ||
-                                Request()->route()->uri() == 'category-edit/{slug}' ||
-                                Request()->route()->uri() == 'category-deleted') class="active" @endif>Categories</a>
-                        <a href="/users" @if (Request()->route()->uri() == 'users' ||
-                                Request()->route()->uri() == 'user-detail/{slug}' ||
-                                Request()->route()->uri() == 'users-deleted' ||
-                                Request()->route()->uri() == 'registed-users') class="active" @endif>Users</a>
-                        <a href="/rent-log" @if (Request()->route()->uri() == 'rent-log') class="active" @endif>Rent Log</a>
-                        <a href="/logout">Logout</a>
+                    @if (Auth::user())
+                        @if (Auth::user()->role_id == 1)
+                            <a href="/dashboard" @if (Request()->route()->uri() == 'dashboard') class="active" @endif>Dashboard</a>
+                            <a href="/books" @if (Request()->route()->uri() == 'books' ||
+                                    Request()->route()->uri() == 'book-add' ||
+                                    Request()->route()->uri() == 'book-edit/{slug}' ||
+                                    Request()->route()->uri() == 'book-delete') class="active" @endif>Books</a>
+                            <a href="/categories" @if (Request()->route()->uri() == 'categories' ||
+                                    Request()->route()->uri() == 'category-add' ||
+                                    Request()->route()->uri() == 'category-edit/{slug}' ||
+                                    Request()->route()->uri() == 'category-deleted') class="active" @endif>Categories</a>
+                            <a href="/users" @if (Request()->route()->uri() == 'users' ||
+                                    Request()->route()->uri() == 'user-detail/{slug}' ||
+                                    Request()->route()->uri() == 'users-deleted' ||
+                                    Request()->route()->uri() == 'registed-users') class="active" @endif>Users</a>
+                            <a href="/rent-log" @if (Request()->route()->uri() == 'rent-log') class="active" @endif>Rent Log</a>
+                            <a href="/logout">Logout</a>
+                        @else
+                            <a href="/profile" @if (Request()->route()->uri() == 'profile') class="active" @endif>Profile</a>
+                            <a href="/logout">Logout</a>
+                        @endif
                     @else
-                        <a href="/profile" @if (Request()->route()->uri() == 'profile') class="active" @endif>Profile</a>
-                        <a href="/logout">Logout</a>
+                        <a href="/login">Login</a>
                     @endif
                 </div>
                 <div class="content p-5 col-lg-10">
