@@ -11,7 +11,10 @@ class PublicController extends Controller
     public function index(Request $request)
     {
         if ($request->category || $request->title) {
-            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+            $books = Book::where('title', 'like', '%' . $request->title . '%')
+                ->orWhereHas('categories', function ($search) use ($request) {
+                    $search->where('categories.id', $request->category);
+                })->get();
         } else {
             $books = Book::all();
         }
