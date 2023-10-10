@@ -7,6 +7,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
@@ -62,6 +63,8 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/user-delete/{slug}', [UserController::class, 'delete']);
         Route::get('/users-deleted', [UserController::class, 'deleteUser']);
         Route::get('/user-restore/{slug}', [UserController::class, 'restore']);
+
+        Route::get('/book-rent', [BookRentController::class, 'index']);
     });
 
     Route::get('/rent-log', [RentLogController::class, 'index']);
