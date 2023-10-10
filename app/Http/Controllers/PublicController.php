@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::all();
+        if ($request->category || $request->title) {
+            $books = Book::where('title', 'like', '%' . $request->title . '%')->get();
+        } else {
+            $books = Book::all();
+        }
         $categories = Category::all();
         return view('FrontEnd.book-list', ['books' => $books, 'categories' => $categories]);
     }
