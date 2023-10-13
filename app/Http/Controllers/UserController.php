@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\RentLogs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class UserController extends Controller
     public function show($slug)
     {
         $user = User::where('slug', $slug)->first();
-        return view('BackEnd.users.user-detail', ['user' => $user]);
+        $rentlogs = RentLogs::with(['user', 'book'])->where('user_id', $user->id)->get();
+        return view('BackEnd.users.user-detail', ['user' => $user, 'rentlogs' => $rentlogs]);
     }
 
     public function approve($slug)
