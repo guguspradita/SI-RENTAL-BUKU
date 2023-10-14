@@ -12,8 +12,8 @@ class UserController extends Controller
 {
     public function profile(Request $request)
     {
-        $books = Book::all();
-        return view('BackEnd.profile', ['books' => $books]);
+        $rentlogs = RentLogs::with(['user', 'book'])->where('user_id', Auth::user()->id)->get();
+        return view('BackEnd.profile', ['rentlogs' => $rentlogs]);
     }
 
     public function index()
