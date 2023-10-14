@@ -75,9 +75,20 @@ class BookRentController extends Controller
         $countData =  $rent->count();
 
         if ($countData == 1) {
-            // return book
-            $rentData->actual_return_date = Carbon::now()->toDateTimeString();
-            $rentData->save();
+            try {
+                DB::beginTransaction();
+                // return book
+                $rentData->actual_return_date = Carbon::now()->toDateTimeString();
+                $rentData->save();
+
+                // process update book table
+                $book = Book::findOrFail($request->book_id);
+                $book->status = 'in stock';
+                $book->save();
+                DB::commit();
+            } catch (\Throwable $th) {
+                DB::rollBack();
+            }
 
             Session::flash('message', 'The book is returned successfully!');
             Session::flash('alert-class', 'alert-success');
