@@ -48,28 +48,8 @@
 
     <div class="mt-5">
         <h2>#Rent Log</h2>
+        <x-rent-log-table :rentlog='$rentlogs' />
 
-        <div class="table-responsive">
-            <table class="table table-striped border">
-                <thead>
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Book Title</th>
-                        <th scope="col">Rent Date</th>
-                        <th scope="col">Return Date</th>
-                        <th scope="col">Actual Return Date</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7" class="text-dark bg-white text-center">Data Masih Kosong
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 
 @endsection
